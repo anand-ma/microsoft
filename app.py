@@ -12,7 +12,10 @@ st.set_page_config(
 
 # Check URL parameters for admin mode
 is_admin = st.query_params.get("admin", "false").lower() == "true"
+model = st.query_params.get("model", "gpt-4o-mini")
 
+if model:
+    os.environ["MODEL"] = model
 # Initialize session state for chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
