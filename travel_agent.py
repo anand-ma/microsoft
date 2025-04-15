@@ -9,7 +9,8 @@ def setup_agents():
     """Setup and return the travel planning agents"""
     # Get API key from Streamlit secrets
     api_key = os.getenv("OPENAI_API_KEY")
-    model_client = OpenAIChatCompletionClient(model="gpt-4o-mini", api_key=api_key)
+    model = os.getnev("MODEL")
+    model_client = OpenAIChatCompletionClient(model=model, api_key=api_key)
 
     planner_agent = AssistantAgent(
         "planner_agent",
